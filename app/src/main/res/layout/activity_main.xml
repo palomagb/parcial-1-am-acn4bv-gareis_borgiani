@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_cream"
-    android:fillViewport="true"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="30dp"
-        android:gravity="center_horizontal">
+        android:layout_height="match_parent"
+        android:background="@color/background_cream"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="60dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:paddingBottom="30dp"
+            android:gravity="center_horizontal">
 
         <!-- titulo -->
         <TextView
@@ -24,14 +31,14 @@
             android:textColor="@color/primary_green"
             android:textSize="28sp"
             android:textStyle="bold"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="5dp"/>
 
         <!-- img -->
         <ImageView
             android:id="@+id/iv_foto_mascota"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:src="@drawable/img_mascota"
             android:scaleType="centerCrop"
             android:background="@drawable/border_history"
@@ -175,3 +182,22 @@
 
     </LinearLayout>
 </ScrollView>
+
+    <!-- boton edicion -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_edit_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+
+        app:fabCustomSize="40dp"
+        app:maxImageSize="20dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="30dp"
+
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        app:backgroundTint="@color/primary_green"
+        app:tint="@color/white"
+        app:elevation="6dp"/>
+
+</FrameLayout>
