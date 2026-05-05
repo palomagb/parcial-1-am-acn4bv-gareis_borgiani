@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
+import android.content.SharedPreferences;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         btnMedicacion = findViewById(R.id.btn_medicacion);
 
         configurarBotones();
+        cargarDatos();
     }
 
     private void configurarBotones() {
@@ -93,5 +95,23 @@ public class MainActivity extends AppCompatActivity {
         } else {
             tvHistorial.setText(nuevoRegistro + "\n" + historialActual); //con datos previos
         }
+        guardarDatos();
+    }
+
+    //persistencia de datos
+    private void guardarDatos() {
+        SharedPreferences preferences = getSharedPreferences("PetCarePrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+
+        editor.putString("historial", tvHistorial.getText().toString());
+        editor.apply();
+    }
+
+    // carga los datos al abrir app
+    private void cargarDatos() {
+        SharedPreferences preferences = getSharedPreferences("PetCarePrefs", MODE_PRIVATE);
+
+        String historialGuardado = preferences.getString("historial", getString(R.string.msg_empty_history));
+        tvHistorial.setText(historialGuardado);
     }
 }
