@@ -1,19 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_cream"
+    android:fillViewport="true"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:padding="30dp"
+        android:gravity="center_horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Titulo -->
+        <TextView
+            android:id="@+id/tv_title_dashboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_dashboard"
+            android:textColor="@color/primary_green"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Img -->
+        <ImageView
+            android:id="@+id/iv_pet_profile"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/border_history"
+            android:backgroundTint="@color/primary_green"
+            android:padding="30dp"
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_pet_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_nombre"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="40dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="40dp"
+            android:paddingLeft="40dp"
+            android:layout_marginBottom="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_especie"
+                android:textSize="18sp"
+                android:layout_marginBottom="15dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_edad"
+                android:textSize="18sp"
+                android:layout_marginBottom="15dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_peso"
+                android:textSize="18sp"
+                android:layout_marginBottom="15dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_genero"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+        <!-- botones -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="30dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button android:id="@+id/btn_comida"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/btn_comida" android:backgroundTint="@color/primary_green"
+                    android:textColor="@color/white" android:layout_margin="3dp"/>
+
+                <Button android:id="@+id/btn_agua"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/btn_agua" android:backgroundTint="@color/primary_green"
+                    android:textColor="@color/white" android:layout_margin="3dp"/>
+
+                <Button android:id="@+id/btn_paseo"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/btn_paseo" android:backgroundTint="@color/primary_green"
+                    android:textColor="@color/white" android:layout_margin="3dp"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button android:id="@+id/btn_juego"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/btn_juego" android:backgroundTint="@color/primary_green"
+                    android:textColor="@color/white" android:layout_margin="3dp"/>
+
+                <Button android:id="@+id/btn_higiene"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/btn_higiene" android:backgroundTint="@color/primary_green"
+                    android:textColor="@color/white" android:layout_margin="3dp"/>
+
+                <Button android:id="@+id/btn_medicacion"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/btn_medicacion" android:backgroundTint="@color/primary_green"
+                    android:textColor="@color/white" android:layout_margin="3dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- historial -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/border_history"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tv_historial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/msg_empty_history"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+        </ScrollView>
+
+    </LinearLayout>
+</ScrollView>

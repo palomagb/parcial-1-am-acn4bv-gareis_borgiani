@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Pet Care Tracker</string>
+    <string name="title_dashboard">Mi Mascota</string>
+    <string name="label_nombre">Nombre</string>
+
+    <string name="label_especie">\u2022 Especie:</string>
+    <string name="label_edad">\u2022 Edad:</string>
+    <string name="label_genero">\u2022 Género:</string>
+    <string name="label_peso">\u2022 Peso:</string>
+
+    <string name="btn_comida">+ COMIDA</string>
+    <string name="btn_agua">+ AGUA</string>
+    <string name="btn_paseo">+ PASEO</string>
+    <string name="btn_juego">+ JUEGO</string>
+    <string name="btn_higiene">+ HIGIENE</string>
+    <string name="btn_medicacion">+ MEDICACIÓN</string>
+
+    <string name="title_historial">Historial de Actividades</string>
+    <string name="msg_empty_history">Aún no hay registros hoy.</string>
 </resources>
