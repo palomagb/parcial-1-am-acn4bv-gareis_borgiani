@@ -14,7 +14,7 @@
         android:padding="30dp"
         android:gravity="center_horizontal">
 
-        <!-- Titulo -->
+        <!-- titulo -->
         <TextView
             android:id="@+id/tv_title_dashboard"
             android:layout_width="wrap_content"
@@ -25,7 +25,7 @@
             android:textStyle="bold"
             android:layout_marginBottom="20dp"/>
 
-        <!-- Img -->
+        <!-- img -->
         <ImageView
             android:id="@+id/iv_pet_profile"
             android:layout_width="150dp"
@@ -87,55 +87,57 @@
 
         <!-- botones -->
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_marginBottom="30dp">
 
+            <!-- fila 1 boton-->
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
 
-                <Button android:id="@+id/btn_comida"
-                    android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="@string/btn_comida" android:backgroundTint="@color/primary_green"
-                    android:textColor="@color/white" android:layout_margin="3dp"/>
+            <Button android:id="@+id/btn_comida"
+                android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+                android:text="@string/btn_comida" android:backgroundTint="@color/primary_green"
+                android:textColor="@color/white" android:layout_margin="3dp" android:textSize="12sp"/>
 
-                <Button android:id="@+id/btn_agua"
-                    android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="@string/btn_agua" android:backgroundTint="@color/primary_green"
-                    android:textColor="@color/white" android:layout_margin="3dp"/>
+            <Button android:id="@+id/btn_agua"
+                android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+                android:text="@string/btn_agua" android:backgroundTint="@color/primary_green"
+                android:textColor="@color/white" android:layout_margin="3dp" android:textSize="12sp"/>
 
-                <Button android:id="@+id/btn_paseo"
-                    android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="@string/btn_paseo" android:backgroundTint="@color/primary_green"
-                    android:textColor="@color/white" android:layout_margin="3dp"/>
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button android:id="@+id/btn_juego"
-                    android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="@string/btn_juego" android:backgroundTint="@color/primary_green"
-                    android:textColor="@color/white" android:layout_margin="3dp"/>
-
-                <Button android:id="@+id/btn_higiene"
-                    android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="@string/btn_higiene" android:backgroundTint="@color/primary_green"
-                    android:textColor="@color/white" android:layout_margin="3dp"/>
-
-                <Button android:id="@+id/btn_medicacion"
-                    android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="@string/btn_medicacion" android:backgroundTint="@color/primary_green"
-                    android:textColor="@color/white" android:layout_margin="3dp"/>
-            </LinearLayout>
+            <Button android:id="@+id/btn_paseo"
+                android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+                android:text="@string/btn_paseo" android:backgroundTint="@color/primary_green"
+                android:textColor="@color/white" android:layout_margin="3dp" android:textSize="12sp"/>
         </LinearLayout>
+
+            <!-- fila 2 boton-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/btn_juego"
+                android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+                android:text="@string/btn_juego" android:backgroundTint="@color/primary_green"
+                android:textColor="@color/white" android:layout_margin="3dp" android:textSize="12sp"/>
+
+            <Button android:id="@+id/btn_higiene"
+                android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+                android:text="@string/btn_higiene" android:backgroundTint="@color/primary_green"
+                android:textColor="@color/white" android:layout_margin="3dp" android:textSize="12sp"/>
+
+            <Button android:id="@+id/btn_medicacion"
+                android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+                android:text="@string/btn_medicacion" android:backgroundTint="@color/primary_green"
+                android:textColor="@color/white" android:layout_margin="3dp" android:textSize="11sp"/>
+        </LinearLayout>
+    </LinearLayout>
 
         <!-- historial -->
         <ScrollView

@@ -13,7 +13,7 @@
     <string name="btn_paseo">+ PASEO</string>
     <string name="btn_juego">+ JUEGO</string>
     <string name="btn_higiene">+ HIGIENE</string>
-    <string name="btn_medicacion">+ MEDICACIÓN</string>
+    <string name="btn_medicacion">+ REMEDIO</string>
 
     <string name="title_historial">Historial de Actividades</string>
     <string name="msg_empty_history">Aún no hay registros hoy.</string>
