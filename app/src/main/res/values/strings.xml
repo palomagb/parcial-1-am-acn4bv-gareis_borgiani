@@ -1,13 +1,16 @@
 <resources>
     <string name="app_name">Pet Care Tracker</string>
+    <string name="app_full_name">Pet Care Tracker</string>
     <string name="title_dashboard">Mi Mascota</string>
-    <string name="label_nombre">Nombre</string>
 
-    <string name="label_especie">\u2022 Especie:</string>
-    <string name="label_edad">\u2022 Edad:</string>
-    <string name="label_genero">\u2022 Género:</string>
-    <string name="label_peso">\u2022 Peso:</string>
+    <!-- mascota: datos -->
+    <string name="pet_name_default">Polar</string>
+    <string name="label_especie">Especie: Felino</string>
+    <string name="label_edad">Edad: 4 años</string>
+    <string name="label_peso">Peso: 6.5 kg</string>
+    <string name="label_genero">Género: Macho</string>
 
+    <!-- botones -->
     <string name="btn_comida">+ COMIDA</string>
     <string name="btn_agua">+ AGUA</string>
     <string name="btn_paseo">+ PASEO</string>
@@ -15,6 +18,23 @@
     <string name="btn_higiene">+ HIGIENE</string>
     <string name="btn_medicacion">+ REMEDIO</string>
 
+    <!-- historial -->
     <string name="title_historial">Historial de Actividades</string>
     <string name="msg_empty_history">Aún no hay registros hoy.</string>
+    <string name="log_comida">Ración de alimento servida.</string>
+    <string name="log_agua">Cambio de agua fresca.</string>
+    <string name="log_paseo">Paseo realizado.</string>
+    <string name="log_juego">Sesión de juego completada.</string>
+    <string name="log_higiene">Higiene/Baño realizado.</string>
+    <string name="log_medicacion">Medicación administrada.</string>
+
+    <string name="dialog_edit_title">Actualizar datos de %1$s</string>
+    <string name="hint_edad">Ej: 4</string>
+    <string name="hint_peso">Ej: 6.5</string>
+    <string name="btn_save">Guardar</string>
+    <string name="btn_cancel">Cancelar</string>
+
+    <string name="log_entry_format">• %1$s - %2$s</string>
+    <string name="display_edad_format">Edad: %1$s años</string>
+    <string name="display_peso_format">Peso: %1$s kg</string>
 </resources>

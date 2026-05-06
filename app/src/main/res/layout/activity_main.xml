@@ -1,203 +1,315 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_cream"
     tools:context=".MainActivity">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/background_cream"
-        android:fillViewport="true">
+        android:id="@+id/main_scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:paddingTop="60dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="30dp"
-            android:paddingBottom="30dp"
-            android:gravity="center_horizontal">
-
-        <!-- titulo -->
-        <TextView
-            android:id="@+id/tv_title_dashboard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_dashboard"
-            android:textColor="@color/primary_green"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="5dp"/>
-
-        <!-- img -->
-        <ImageView
-            android:id="@+id/iv_foto_mascota"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="5dp"
-            android:src="@drawable/img_mascota"
-            android:scaleType="centerCrop"
-            android:background="@drawable/border_history"
-            android:clipToOutline="true"
-            android:layout_gravity="center" />
-
-        <TextView
-            android:id="@+id/tv_nombre_mascota"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Polar"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingStart="40dp"
-            android:paddingEnd="40dp">
-
-            <LinearLayout
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="12dp">
-                <ImageView android:layout_width="24dp" android:layout_height="24dp"
-                    android:src="@drawable/ic_especie" app:tint="@color/primary_green" />
-                <TextView android:id="@+id/tv_display_especie" android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:text="Especie: Felino"
-                    android:layout_marginStart="12dp" android:textSize="18sp" android:textColor="@color/black" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="12dp">
-                <ImageView android:layout_width="24dp" android:layout_height="24dp"
-                    android:src="@drawable/ic_edad" app:tint="@color/primary_green" />
-                <TextView android:id="@+id/tv_display_edad" android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:text="Edad: 4 años"
-                    android:layout_marginStart="12dp" android:textSize="18sp" android:textColor="@color/black" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="12dp">
-                <ImageView android:layout_width="24dp" android:layout_height="24dp"
-                    android:src="@drawable/ic_peso" app:tint="@color/primary_green" />
-                <TextView android:id="@+id/tv_display_peso" android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:text="Peso: 6.5 kg"
-                    android:layout_marginStart="12dp" android:textSize="18sp" android:textColor="@color/black" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="25dp">
-                <ImageView android:layout_width="24dp" android:layout_height="24dp"
-                    android:src="@drawable/ic_genero" app:tint="@color/primary_green" />
-                <TextView android:id="@+id/tv_display_genero" android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:text="Género: Macho"
-                    android:layout_marginStart="12dp" android:textSize="18sp" android:textColor="@color/black" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- botones -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginBottom="30dp">
-
-            <!-- fila 1 boton -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal"
-                android:layout_marginBottom="5dp">
-
-                <Button android:id="@+id/btn_comida"
-                    android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
-                    android:text="@string/btn_comida" android:backgroundTint="@color/primary_green"
-                    android:textColor="@color/white" android:layout_margin="3dp" android:textSize="12sp"
-                    android:padding="0dp" android:gravity="center" android:includeFontPadding="false"/>
-
-                <Button android:id="@+id/btn_agua"
-                    android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
-                    android:text="@string/btn_agua" android:backgroundTint="@color/primary_green"
-                    android:textColor="@color/white" android:layout_margin="3dp" android:textSize="12sp"
-                    android:padding="0dp" android:gravity="center" android:includeFontPadding="false"/>
-
-                <Button android:id="@+id/btn_paseo"
-                    android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
-                    android:text="@string/btn_paseo" android:backgroundTint="@color/primary_green"
-                    android:textColor="@color/white" android:layout_margin="3dp" android:textSize="12sp"
-                    android:padding="0dp" android:gravity="center" android:includeFontPadding="false"/>
-            </LinearLayout>
-
-            <!-- fila 2 boton -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal">
-
-                <Button android:id="@+id/btn_juego"
-                    android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
-                    android:text="@string/btn_juego" android:backgroundTint="@color/primary_green"
-                    android:textColor="@color/white" android:layout_margin="3dp" android:textSize="12sp"
-                    android:padding="0dp" android:gravity="center" android:includeFontPadding="false"/>
-
-                <Button android:id="@+id/btn_higiene"
-                    android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
-                    android:text="@string/btn_higiene" android:backgroundTint="@color/primary_green"
-                    android:textColor="@color/white" android:layout_margin="3dp" android:textSize="12sp"
-                    android:padding="0dp" android:gravity="center" android:includeFontPadding="false"/>
-
-                <Button android:id="@+id/btn_medicacion"
-                    android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
-                    android:text="@string/btn_medicacion" android:backgroundTint="@color/primary_green"
-                    android:textColor="@color/white" android:layout_margin="3dp" android:textSize="11sp"
-                    android:padding="0dp" android:gravity="center" android:includeFontPadding="false"/>
-            </LinearLayout>
-    </LinearLayout>
-
-        <!-- historial -->
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/border_history"
-            android:padding="20dp">
+            android:paddingStart="@dimen/padding_main"
+            android:paddingTop="@dimen/padding_top_main"
+            android:paddingEnd="@dimen/padding_main"
+            android:paddingBottom="@dimen/margin_bottom_extra">
 
             <TextView
-                android:id="@+id/tv_historial"
+                android:id="@+id/tv_title_dashboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_bottom_small"
+                android:text="@string/title_dashboard"
+                android:textColor="@color/primary_green"
+                android:textSize="@dimen/text_size_title"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_foto_mascota"
+                android:layout_width="@dimen/pet_image_size"
+                android:layout_height="@dimen/pet_image_size"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_top_small"
+                android:background="@drawable/border_history"
+                android:contentDescription="@string/pet_name_default"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_mascota" />
+
+            <TextView
+                android:id="@+id/tv_nombre_mascota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_top_medium"
+                android:layout_marginBottom="@dimen/margin_bottom_medium"
+                android:text="@string/pet_name_default"
+                android:textSize="@dimen/text_size_name"
+                android:textStyle="bold" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/msg_empty_history"
-                android:textColor="@color/black"
-                android:textSize="16sp"/>
-        </ScrollView>
+                android:orientation="vertical"
+                android:paddingStart="@dimen/padding_inner_data"
+                android:paddingEnd="@dimen/padding_inner_data">
 
-    </LinearLayout>
-</ScrollView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_bottom_elements"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
 
-    <!-- boton edicion -->
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_especie"
+                        app:tint="@color/primary_green" />
+
+                    <TextView
+                        android:id="@+id/tv_display_especie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_bottom_elements"
+                        android:text="@string/label_especie"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_body" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_bottom_elements"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_edad"
+                        app:tint="@color/primary_green" />
+
+                    <TextView
+                        android:id="@+id/tv_display_edad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_bottom_elements"
+                        android:text="@string/label_edad"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_body" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_bottom_elements"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_peso"
+                        app:tint="@color/primary_green" />
+
+                    <TextView
+                        android:id="@+id/tv_display_peso"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_bottom_elements"
+                        android:text="@string/label_peso"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_body" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_bottom_spacer"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_genero"
+                        app:tint="@color/primary_green" />
+
+                    <TextView
+                        android:id="@+id/tv_display_genero"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_bottom_elements"
+                        android:text="@string/label_genero"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_body" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_bottom_large"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginBottom="@dimen/margin_bottom_small"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_comida"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/margin_button_grid"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/primary_green"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:padding="0dp"
+                        android:text="@string/btn_comida"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_button"
+                        tools:ignore="ButtonStyle" />
+
+                    <Button
+                        android:id="@+id/btn_agua"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/margin_button_grid"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/primary_green"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:padding="0dp"
+                        android:text="@string/btn_agua"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_button"
+                        tools:ignore="ButtonStyle" />
+
+                    <Button
+                        android:id="@+id/btn_paseo"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/margin_button_grid"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/primary_green"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:padding="0dp"
+                        android:text="@string/btn_paseo"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_button"
+                        tools:ignore="ButtonStyle" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_juego"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/margin_button_grid"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/primary_green"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:padding="0dp"
+                        android:text="@string/btn_juego"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_button"
+                        tools:ignore="ButtonStyle" />
+
+                    <Button
+                        android:id="@+id/btn_higiene"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/margin_button_grid"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/primary_green"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:padding="0dp"
+                        android:text="@string/btn_higiene"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_button"
+                        tools:ignore="ButtonStyle" />
+
+                    <Button
+                        android:id="@+id/btn_medicacion"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/margin_button_grid"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/primary_green"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:padding="0dp"
+                        android:text="@string/btn_medicacion"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_button_small"
+                        tools:ignore="ButtonStyle" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ScrollView
+                android:id="@+id/scroll_historial"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/history_height"
+                android:background="@drawable/border_history"
+                android:padding="@dimen/padding_history"
+                tools:ignore="NestedScrolling">
+
+                <LinearLayout
+                    android:id="@+id/container_historial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </ScrollView>
+
+        </LinearLayout>
+    </ScrollView>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_edit_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-
-        app:fabCustomSize="40dp"
-        app:maxImageSize="20dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="30dp"
-
-        app:srcCompat="@android:drawable/ic_menu_edit"
+        android:layout_marginEnd="@dimen/fab_margin_end"
+        android:layout_marginBottom="@dimen/fab_margin_bottom"
+        android:contentDescription="@string/btn_save"
         app:backgroundTint="@color/primary_green"
-        app:tint="@color/white"
-        app:elevation="6dp"/>
+        app:elevation="6dp"
+        app:fabCustomSize="@dimen/fab_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="@dimen/fab_icon_size"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        app:tint="@color/white" />
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

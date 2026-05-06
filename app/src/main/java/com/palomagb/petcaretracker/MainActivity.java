@@ -1,33 +1,38 @@
 package com.palomagb.petcaretracker;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AlertDialog;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
+
 import android.content.SharedPreferences;
 import android.text.InputType;
 
 public class MainActivity extends AppCompatActivity {
 
-    // componentes del XML
-    private TextView tvHistorial, tvNombreMascota, tvDisplayEdad, tvDisplayPeso;
+    private LinearLayout containerHistorial;
+    private TextView tvNombreMascota, tvDisplayEdad, tvDisplayPeso;
     private Button btnComida, btnAgua, btnPaseo, btnJuego, btnHigiene, btnMedicacion;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // IDs del XML
-        tvHistorial = findViewById(R.id.tv_historial);
+        containerHistorial = findViewById(R.id.container_historial);
 
         btnComida = findViewById(R.id.btn_comida);
         btnAgua = findViewById(R.id.btn_agua);
@@ -44,111 +49,131 @@ public class MainActivity extends AppCompatActivity {
 
         configurarBotones();
         cargarDatos();
+
+        ScrollView mainScroll = findViewById(R.id.main_scroll);
+        ScrollView historyScroll = findViewById(R.id.scroll_historial);
+
+        ImageView ivFoto = findViewById(R.id.iv_foto_mascota);
+        ivFoto.setClipToOutline(true);
+
+        historyScroll.setOnTouchListener((v, event) -> {
+            if (event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
+                mainScroll.requestDisallowInterceptTouchEvent(true);
+            }
+            v.performClick();
+            return false;
+        });
     }
 
     private void configurarBotones() {
-        btnComida.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                registrarActividad("Ración de alimento servida.");
-            }
-        });
-
-        btnAgua.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                registrarActividad("Cambio de agua fresca.");
-            }
-        });
-
-        btnPaseo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                registrarActividad("Paseo realizado.");
-            }
-        });
-
-        btnJuego.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                registrarActividad("Sesión de juego completada.");
-            }
-        });
-
-        btnHigiene.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                registrarActividad("Higiene/Baño realizado.");
-            }
-        });
-
-        btnMedicacion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                registrarActividad("Medicación administrada.");
-            }
-        });
+        btnComida.setOnClickListener(v -> registrarActividad(getString(R.string.log_comida)));
+        btnAgua.setOnClickListener(v -> registrarActividad(getString(R.string.log_agua)));
+        btnPaseo.setOnClickListener(v -> registrarActividad(getString(R.string.log_paseo)));
+        btnJuego.setOnClickListener(v -> registrarActividad(getString(R.string.log_juego)));
+        btnHigiene.setOnClickListener(v -> registrarActividad(getString(R.string.log_higiene)));
+        btnMedicacion.setOnClickListener(v -> registrarActividad(getString(R.string.log_medicacion)));
     }
 
-    // actualizar el historial
     private void registrarActividad(String actividad) {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.getDefault());
         sdf.setTimeZone(TimeZone.getTimeZone("America/Argentina/Cordoba"));
         String horaActual = sdf.format(new Date());
-        String nuevoRegistro = "• " + horaActual + " - " + actividad;
 
-        String historialActual = tvHistorial.getText().toString();
-
-        // verifica si el historial esta vacío
-        if (historialActual.equals(getString(R.string.msg_empty_history))) {
-            tvHistorial.setText(nuevoRegistro); //vacio
-        } else {
-            tvHistorial.setText(nuevoRegistro + "\n" + historialActual); //con datos previos
+        if (containerHistorial.getChildCount() == 1) {
+            TextView vistaHija = (TextView) containerHistorial.getChildAt(0);
+            if (vistaHija.getText().toString().equals(getString(R.string.msg_empty_history))) {
+                containerHistorial.removeAllViews();
+            }
         }
+
+        TextView nuevoItem = new TextView(this);
+        nuevoItem.setText(getString(R.string.log_entry_format, horaActual, actividad));
+        nuevoItem.setTextColor(androidx.core.content.ContextCompat.getColor(this, R.color.black));
+
+        float textSizePx = getResources().getDimension(R.dimen.text_size_history);
+        float density = getResources().getDisplayMetrics().density;
+        nuevoItem.setTextSize(textSizePx / density);
+
+        nuevoItem.setPadding(0, 8, 0, 8);
+        containerHistorial.addView(nuevoItem, 0);
+
         guardarDatos();
     }
 
-    //persistencia de datos
     private void guardarDatos() {
         SharedPreferences preferences = getSharedPreferences("PetCarePrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
 
-        editor.putString("historial", tvHistorial.getText().toString());
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < containerHistorial.getChildCount(); i++) {
+            TextView tv = (TextView) containerHistorial.getChildAt(i);
+            String texto = tv.getText().toString();
+
+            if (!texto.equals(getString(R.string.msg_empty_history))) {
+                sb.append(texto);
+                if (i < containerHistorial.getChildCount() - 1) sb.append("\n");
+            }
+        }
+
+        editor.putString("historial", sb.toString());
         editor.putString("edad", tvDisplayEdad.getText().toString());
         editor.putString("peso", tvDisplayPeso.getText().toString());
-
         editor.apply();
     }
 
-    // carga los datos al abrir app
     private void cargarDatos() {
         SharedPreferences preferences = getSharedPreferences("PetCarePrefs", MODE_PRIVATE);
 
-        tvNombreMascota.setText("Polar");
+        tvNombreMascota.setText(getString(R.string.pet_name_default));
+        tvDisplayEdad.setText(preferences.getString("edad", getString(R.string.label_edad)));
+        tvDisplayPeso.setText(preferences.getString("peso", getString(R.string.label_peso)));
 
-        tvHistorial.setText(preferences.getString("historial", getString(R.string.msg_empty_history)));
+        String historialGuardado = preferences.getString("historial", "");
+        containerHistorial.removeAllViews();
 
-        tvDisplayEdad.setText(preferences.getString("edad", "Edad: 4 años"));
-        tvDisplayPeso.setText(preferences.getString("peso", "Peso: 6.5 kg"));
+        if (historialGuardado.isEmpty()) {
+            TextView tvVacio = new TextView(this);
+            tvVacio.setText(getString(R.string.msg_empty_history));
+            tvVacio.setTextColor(androidx.core.content.ContextCompat.getColor(this, R.color.black));
+            float textSizePx = getResources().getDimension(R.dimen.text_size_history);
+            tvVacio.setTextSize(textSizePx / getResources().getDisplayMetrics().density);
+            containerHistorial.addView(tvVacio);
+        } else {
+            String[] registros = historialGuardado.split("\n");
+            for (String registro : registros) {
+                if (!registro.trim().isEmpty()) {
+                    TextView tv = new TextView(this);
+                    tv.setText(registro);
+                    tv.setTextColor(androidx.core.content.ContextCompat.getColor(this, R.color.black));
+                    float textSizePx = getResources().getDimension(R.dimen.text_size_history);
+                    tv.setTextSize(textSizePx / getResources().getDisplayMetrics().density);
+                    tv.setPadding(0, 8, 0, 8);
+                    containerHistorial.addView(tv);
+                }
+            }
+        }
     }
 
-    //edit
     private void mostrarDialogoEdicion() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Actualizar datos de Polar");
+        String titulo = String.format(getString(R.string.dialog_edit_title), getString(R.string.pet_name_default));
+        builder.setTitle(titulo);
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(50, 40, 50, 10);
+        int padding = (int) getResources().getDimension(R.dimen.padding_inner_data);
+        layout.setPadding(padding, padding / 2, padding, padding / 4);
 
         final EditText inputEdad = new EditText(this);
-        inputEdad.setHint("Ej: 4");
+        inputEdad.setHint(getString(R.string.hint_edad));
+        inputEdad.setInputType(InputType.TYPE_CLASS_NUMBER);
         String edadActual = tvDisplayEdad.getText().toString().replaceAll("[^0-9]", "");
         inputEdad.setText(edadActual);
         layout.addView(inputEdad);
 
         final EditText inputPeso = new EditText(this);
-        inputPeso.setHint("Ej: 6.5");
+        inputPeso.setHint(getString(R.string.hint_peso));
         inputPeso.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         String pesoActual = tvDisplayPeso.getText().toString().replace("Peso: ", "").replace(" kg", "");
         inputPeso.setText(pesoActual);
@@ -156,18 +181,20 @@ public class MainActivity extends AppCompatActivity {
 
         builder.setView(layout);
 
-        builder.setPositiveButton("Guardar", (dialog, which) -> {
+        builder.setPositiveButton(getString(R.string.btn_save), (dialog, which) -> {
             String nuevaEdad = inputEdad.getText().toString();
             String nuevoPeso = inputPeso.getText().toString();
 
-            if (!nuevaEdad.isEmpty()) tvDisplayEdad.setText("Edad: " + nuevaEdad + " años");
-            if (!nuevoPeso.isEmpty()) tvDisplayPeso.setText("Peso: " + nuevoPeso + " kg");
-
+            if (!nuevaEdad.isEmpty()) {
+                tvDisplayEdad.setText(getString(R.string.display_edad_format, nuevaEdad));
+            }
+            if (!nuevoPeso.isEmpty()) {
+                tvDisplayPeso.setText(getString(R.string.display_peso_format, nuevoPeso));
+            }
             guardarDatos();
         });
 
-        builder.setNegativeButton("Cancelar", null);
+        builder.setNegativeButton(getString(R.string.btn_cancel), null);
         builder.show();
     }
-
 }

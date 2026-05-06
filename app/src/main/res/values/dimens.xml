@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_top_main">60dp</dimen>
+    <dimen name="padding_main">30dp</dimen>
+    <dimen name="padding_inner_data">40dp</dimen>
+    <dimen name="padding_history">20dp</dimen>
+
+    <dimen name="margin_top_small">5dp</dimen>
+    <dimen name="margin_top_medium">10dp</dimen>
+    <dimen name="margin_bottom_small">5dp</dimen>
+    <dimen name="margin_bottom_elements">12dp</dimen>
+    <dimen name="margin_bottom_medium">20dp</dimen>
+    <dimen name="margin_bottom_large">30dp</dimen>
+    <dimen name="margin_bottom_spacer">25dp</dimen>
+    <dimen name="margin_bottom_extra">100dp</dimen>
+    <dimen name="margin_button_grid">3dp</dimen>
+
+    <dimen name="pet_image_size">150dp</dimen>
+    <dimen name="icon_size">24dp</dimen>
+    <dimen name="button_height">60dp</dimen>
+    <dimen name="history_height">200dp</dimen>
+    <dimen name="logo_splash_size">220dp</dimen>
+
+    <dimen name="fab_size">40dp</dimen>
+    <dimen name="fab_icon_size">20dp</dimen>
+    <dimen name="fab_margin_end">24dp</dimen>
+    <dimen name="fab_margin_bottom">30dp</dimen>
+
+    <!-- tamaño textos -->
+    <dimen name="text_size_title">28sp</dimen>
+    <dimen name="text_size_name">24sp</dimen>
+    <dimen name="text_size_body">18sp</dimen>
+    <dimen name="text_size_button">12sp</dimen>
+    <dimen name="text_size_button_small">11sp</dimen>
+    <dimen name="text_size_history">16sp</dimen>
+    <dimen name="text_size_splash">32sp</dimen>
+</resources>
