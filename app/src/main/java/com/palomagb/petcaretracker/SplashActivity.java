@@ -12,12 +12,11 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        // Ocultar la barra de arriba para que sea pantalla completa
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
 
-        // Timer de 2.5 segundos (2500 milisegundos)
+        // timer
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

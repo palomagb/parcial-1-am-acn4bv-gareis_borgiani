@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PetCareTracker">
 
-        <!-- Nuestra nueva Splash Screen (Ahora es la principal) -->
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -21,8 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- El Dashboard de Polar (Ahora se abre DESPUÉS de la Splash) -->
+        
         <activity
             android:name=".MainActivity"
             android:exported="false" />
