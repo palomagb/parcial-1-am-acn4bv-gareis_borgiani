@@ -1,5 +1,6 @@
-# parcial-1-am-acn4bv-gareis_borgiani
 TP1 Aplicaciones Móviles - "Pet Care Tracker"
+
+Integrante: Paloma Gareis Borgiani 
 
 Informe del proyecto: 
 
