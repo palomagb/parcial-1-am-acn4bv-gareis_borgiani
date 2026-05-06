@@ -13,11 +13,13 @@ Para el desarrollo de la interfaz se trabajó bajo un concepto minimalista y org
    - Pantalla de bienvenida: Splash Screen
      
 Se implementó una Splash Screen como punto de entrada a la aplicación para que al iniciarla se pueda visualizar el nombre y logo de la app, teniendo una transición que dura unos segundos para luego pasar a la pantalla principal, generando una mejor experiencia UX.
+
 <img width="300" alt="Pet Care Tracker (1)" src="https://github.com/user-attachments/assets/de03c867-ec19-4d15-afec-c8e0fcba002a"  />
 
   - Pantalla de Login:
     
 Se diseñó el prototipo de acceso para una próxima etapa de desarrollo de la app. Permitir la autenticación segura mediante email y contraseña, pudiendo vincular los datos de la o las mascotas a una cuenta personal para tenerlos cargados en la cuenta propia.
+
 <img width="300" alt="Pet Care Tracker (5)" src="https://github.com/user-attachments/assets/f7c0ceae-b9b4-4a6b-8f39-07bdeb004aa3" />
 
    - Pantalla Principal: Dashboard (PANTALLA SELECCIONADA)
