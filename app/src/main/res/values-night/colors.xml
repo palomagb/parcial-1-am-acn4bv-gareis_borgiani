@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Verde más clarito para que resalte sobre el negro -->
+    <color name="primary_green">#B7C9B6</color>
+    <!-- Fondo casi negro -->
+    <color name="background_cream">#121212</color>
+    <!-- Color para el recuadro del historial (gris oscuro) -->
+    <color name="white">#1E1E1E</color>
+    <!-- Color para los textos (gris muy clarito, casi blanco) -->
+    <color name="black">#E1E1E1</color>
+</resources>
